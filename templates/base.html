@@ -12,6 +12,32 @@
     <title>Document</title>
 </head>
 <body>
+
+    <header>
+        <!-- top navbar -->
+        <nav class="nav-extended text-shadow">
+            <div class="nav-wrapper">
+            <a href="{{ url_for('get_recipes')}}" class="brand-logo">Grub's Up!</a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Recipes</a></li>
+                <li><a href="#">Sign up</a></li>
+                <li><a href="#">Log in</a></li>
+            </ul>
+            </div>
+        </nav>
+
+        <!-- mobile sidenav -->
+        <ul class="sidenav" id="mobile-demo">
+            <li><h4 class="center-align">Grub's Up!</h4></li>
+            <li><a href="{{ url_for('get_recipes')}}">Home</a></li>
+            <li><a href="#">Recipes</a></li>
+            <li><a href="#">Sign up</a></li>
+            <li><a href="#">Log in</a></li>
+        </ul>
+    </header>
+
     {% block content %}
 
     {% endblock %}
