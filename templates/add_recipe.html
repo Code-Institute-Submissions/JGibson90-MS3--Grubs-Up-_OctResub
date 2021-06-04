@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content%}
+
+    <h3 class="center-align">Add Recipe</h3>
+
+
+    <div class="row">
+        <form class="col s12" method="POST" action="">
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="recipe_name" name="recipe_name" type="text" class="validate" required>
+                    <label for="">Recipe Name</label>
+                    <span class="helper-text">Helper text</span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="recipe_ingredients" name="recipe_ingredients" type="text" class="validate" required>
+                    <label for="recipe_ingredients">Recipe Ingredients</label>
+                    <span class="helper-text">Helper text</span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="recipe_instructions" name="recipe_instructions" type="text" class="validate" required>
+                    <label for="recipe_instructions">Recipe Instructions</label>
+                    <span class="helper-text">Helper text</span>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="row">
+        <div class="col-s12">
+            <a class="waves-effect waves-light btn-large">Button</a>
+        </div>
+    </div>
+{% endblock %}

@@ -27,7 +27,7 @@ def index():
 
 @app.route("/get_recipes")
 def get_recipes():
-    recipes = mongo.db.recipes.find()
+    recipes = list(mongo.db.recipes.find())
     return render_template("recipes.html", recipes=recipes)
 
 
@@ -104,6 +104,10 @@ def logout():
     session.pop("user")
     return redirect(url_for("login"))
 
+
+@app.route("/add_recipe")
+def add_recipe():
+    return render_template("add_recipe.html")
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
