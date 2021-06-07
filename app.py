@@ -28,7 +28,7 @@ def index():
 @app.route("/get_recipes")
 def get_recipes():
     recipes = list(mongo.db.recipes.find())
-    return render_template("recipes.html", recipes=recipes)
+    return render_template("recipes_menu.html", recipes=recipes)
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -121,6 +121,26 @@ def add_recipe():
         flash("Recipe added successfully")
         return redirect(url_for("get_recipes"))
     return render_template("add_recipe.html")
+
+@app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
+def edit_recipe(recipe_id):
+    if request.method == "POST":
+        recipe = {
+            "recipe_name": request.form.get("recipe_name"),
+            "recipe_image": request.form.get("recipe_image"),
+            "recipe_ingredients": request.form.get("recipe_ingredients"),
+            "recipe_instructions": request.form.get("recipe_instructions"),
+            "recipe_serves": request.form.get("recipe_serves"),
+            "recipe_time": request.form.get("recipe_time"),
+            "created_by": session["user"]
+        }
+        mongo.db.recipes.insert_one(recipe)
+        flash("Recipe edited successfully")
+        return redirect(url_for("get_recipes"))
+
+    recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+
+    return render_template("edit_recipe.html", recipe=recipe)
 
 
 if __name__ == "__main__":

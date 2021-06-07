@@ -10,7 +10,9 @@
                     <h3 class="center-align">{{ recipe.recipe_name }} </h3>
                 </div>
                 <div class="col s12 m6">
-                    <div>{{ recipe.recipe_image }}</div>
+                    <a href="">
+                        <img class="recipe-image" src="{{ recipe.recipe_image }}" alt="Recipe Image">
+                    </a>
                 </div>
                 <div class="col s12 m6">
                     <p>
@@ -43,6 +45,11 @@
                 </div>
             </div>
 
+            <div class="row">
+                <div class="col s12 m6 center-align">
+                    <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="btn-small">Edit Recipe</a>
+                </div>
+            </div>
         {% endfor %}
 
     </section>
