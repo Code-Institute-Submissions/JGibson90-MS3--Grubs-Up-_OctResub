@@ -135,12 +135,18 @@ def edit_recipe(recipe_id):
             "created_by": session["user"]
         }
         mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, submit)
-        flash("Recipe edited successfully")
+        flash("Recipe Edited Successfully")
         return redirect(url_for("get_recipes"))
 
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
 
     return render_template("edit_recipe.html", recipe=recipe)
+
+@app.route("/delete_recipe/<recipe_id>")
+def delete_recipe(recipe_id):
+    mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
+    flash("Recipe Deleted Successfully")
+    return redirect(url_for("get_recipes"))
 
 
 if __name__ == "__main__":
