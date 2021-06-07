@@ -4,36 +4,61 @@
     <h3 class="center-align">Add Recipe</h3>
 
 
-    <div class="row">
+    <div class="row card-panel">
         <form class="col s12" method="POST" action="">
             <div class="row">
                 <div class="input-field col s12">
                     <input id="recipe_name" name="recipe_name" type="text" class="validate" required>
-                    <label for="">Recipe Name</label>
-                    <span class="helper-text">Helper text</span>
+                    <label for="recipe_name">Recipe Name</label>
+                    <span class="helper-text">What is the name of your recipe?</span>
                 </div>
             </div>
 
             <div class="row">
                 <div class="input-field col s12">
-                    <input id="recipe_ingredients" name="recipe_ingredients" type="text" class="validate" required>
+                    <input id="recipe_image" name="recipe_image" type="text" class="validate" required>
+                    <label for="recipe_image">Recipe Image URL</label>
+                    <span class="helper-text">Please enter the image URL of your recipe</span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <textarea id="recipe_ingredients" name="recipe_ingredients" class="materialize-textarea" required></textarea>
                     <label for="recipe_ingredients">Recipe Ingredients</label>
-                    <span class="helper-text">Helper text</span>
+                    <span class="helper-text">Please add each ingredient and its' quantity, using a new line for every new ingredient</span>
                 </div>
             </div>
 
             <div class="row">
                 <div class="input-field col s12">
-                    <input id="recipe_instructions" name="recipe_instructions" type="text" class="validate" required>
+                    <textarea id="recipe_instructions" name="recipe_instructions" class="materialize-textarea" required></textarea>
                     <label for="recipe_instructions">Recipe Instructions</label>
-                    <span class="helper-text">Helper text</span>
+                    <span class="helper-text">Please add your instructions using a new line for each step of the recipe</span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="recipe_serves" name="recipe_serves" type="text" class="validate" required>
+                    <label for="recipe_serves">Recipe Serves</label>
+                    <span class="helper-text">Please enter the number of people your recipe serves</span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="recipe_time" name="recipe_time" type="text" class="validate" required>
+                    <label for="recipe_time">Recipe Time</label>
+                    <span class="helper-text">Please enter the number of minutes your recipe takes to make from start to finish (including prep time)</span>
                 </div>
             </div>
         </form>
-    </div>
-    <div class="row">
-        <div class="col-s12">
-            <a class="waves-effect waves-light btn-large">Button</a>
+        <div class="row">
+            <div class="col-s12">
+                <a class="waves-effect waves-light btn-large">Submit Your Recipe</a>
+            </div>
         </div>
     </div>
+    
 {% endblock %}
