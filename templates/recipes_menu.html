@@ -14,42 +14,46 @@
                         <img class="recipe-image" src="{{ recipe.recipe_image }}" alt="Recipe Image">
                     </a>
                 </div>
-                <div class="col s12 m6">
+            </div>
+            <div class="row">
+                <div class="col s12 m6 center-align">
                     <p>
-                        {{ recipe.recipe_serves }}
+                        Serves: {{ recipe.recipe_serves }}
                     </p>
                     <p>
-                        {{ recipe.recipe_time }}
-                    </p>
-                    <p>
-                        {{ recipe.recipe_calories }}
+                        Time: {{ recipe.recipe_time }} mins
                     </p>
                 </div>
             </div>
-        
+            
             <div class="row">
                 <div class="col s12 m6">
                     <div class="card-panel teal">
+                    {% for content in recipe.recipe_ingredients.splitlines() %}
                         <p class="white-text">
-                            {{ recipe.recipe_ingredients }}
+                            {{ content }}
                         </p>
+                    {% endfor %}
                     </div>
                 </div>
 
                 <div class="col s12 m6">
                     <div class="card-panel teal">
+                    {% for content in recipe.recipe_instructions.splitlines() %}
                         <p class="white-text">
-                            {{ recipe.recipe_instructions }}
+                            {{ content }}
                         </p>
+                    {% endfor %}
                     </div>
                 </div>
             </div>
-           
-            <div class="row">
-                <div class="col s12 m6 center-align">
-                    <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="btn-small">Edit Recipe</a>
+           {% if session.user or is_admin %}
+                <div class="row">
+                    <div class="col s12 m6 center-align">
+                        <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="btn-small">Edit Recipe</a>
+                    </div>
                 </div>
-            </div>
+            {% endif %}
         {% endfor %}
 
     </section>

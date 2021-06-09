@@ -9,7 +9,7 @@
             <!-- recipe name -->
             <div class="row">
                 <div class="input-field col s12">
-                    <input id="recipe_name" name="recipe_name" value="{{ recipe.recipe_name}}" type="text" class="validate" required>
+                    <input id="recipe_name" name="recipe_name" value="{{ recipe.recipe_name }}" type="text" class="validate" required>
                     <label for="recipe_name">Recipe Name</label>
                     <span class="helper-text">What is the name of your recipe?</span>
                 </div>
@@ -17,7 +17,7 @@
             <!-- recipe image -->
             <div class="row">
                 <div class="input-field col s12">
-                    <input id="recipe_image" name="recipe_image" value="{{ recipe.recipe_image}}"type="text" class="validate" required>
+                    <input id="recipe_image" name="recipe_image" value="{{ recipe.recipe_image }}"type="text" class="validate" required>
                     <label for="recipe_image">Recipe Image URL</label>
                     <span class="helper-text">Please enter the image URL of your recipe</span>
                 </div>
@@ -36,7 +36,7 @@
             <!-- recipe instructions -->
             <div class="row">
                 <div class="input-field col s12">
-                    <textarea id="recipe_instructions" name="recipe_instructions" value="{{ recipe.recipe_instructions}}"
+                    <textarea id="recipe_instructions" name="recipe_instructions" value="{{ recipe.recipe_instructions }}"
                     class="materialize-textarea validate" required>
                     {{- recipe.recipe_instructions -}}
                     </textarea>
@@ -47,7 +47,7 @@
             <!-- recipe serves total -->
             <div class="row">
                 <div class="input-field col s12">
-                    <input id="recipe_serves" name="recipe_serves" type="text" value="{{ recipe.recipe_serves}}"
+                    <input id="recipe_serves" name="recipe_serves" type="text" value="{{ recipe.recipe_serves }}"
                     class="validate" required>
                     <label for="recipe_serves">Recipe Serves</label>
                     <span class="helper-text">Please enter the total number of people your recipe serves</span>
@@ -56,7 +56,7 @@
             <!-- recipe time -->
             <div class="row">
                 <div class="input-field col s12">
-                    <input id="recipe_time" name="recipe_time" type="text" value="{{ recipe.recipe_time}}" class="validate" required>
+                    <input id="recipe_time" name="recipe_time" type="text" value="{{ recipe.recipe_time }}" class="validate" required>
                     <label for="recipe_time">Recipe Time</label>
                     <span class="helper-text">Please enter the number of minutes your recipe takes to make from start to finish (including prep time)</span>
                 </div>
@@ -67,7 +67,7 @@
                     <!-- submit button -->
                     <button class="btn-large waves-effect waves-light text-shadow">Edit Recipe</button>
                     <!-- cancel button -->
-                    <a href="" class="btn-large red waves-effect waves-light text-shadow">Cancel</a>
+                    <a href="{{ url_for('get_recipes') }}" class="btn-large red waves-effect waves-light text-shadow">Cancel</a>
                 </div>
                 <div class="col s12 center-align">
                     <!-- delete button -->
