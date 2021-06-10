@@ -1,4 +1,55 @@
+/* ----------------- Google Fonts -----------------*/
+
+@import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@100;200;300;400;500;600;700;800;900&family=Hepta+Slab:wght@300;400;500;600;700;800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+h1 h2 h3 h4 h5 h6 {
+    font-family: "Catamaran", sans-serif;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+}
+
+.page-header {
+    font-family: "Catamaran", sans-serif;
+    font-weight: 600;
+}
+
+.flashed-message {
+    font-family: "Hepta Slab", sans-serif;
+    font-weight: 600;
+}
+
+
 /* ----------------- Navbar -----------------*/
+
 .text-shadow {
     text-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+.brand-logo {
+    font-family: "Hepta Slab", sans-serif;
+    font-weight: 600;
+    margin-left: 10px;
+}
+
+/* ----------------- Home Page -----------------*/
+
+.hero-header {
+    font-family: "Hepta Slab", sans-serif;
+    font-weight: 600;
+    margin-top: 100px;
+}
+
+/* ----------------- Recipe Details -----------------*/
+
+.recipe-name {
+    font-weight: 600;
+    font-family: "Catamaran", sans-serif;
+}
+
+/* ----------------- Footer -----------------*/
+
+.social-links {
+    display: block;
 }

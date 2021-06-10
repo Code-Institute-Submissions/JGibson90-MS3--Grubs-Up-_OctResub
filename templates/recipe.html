@@ -1,60 +1,61 @@
 {% extends "base.html" %}
 {% block content%}
 
-<section>
-    
-    {% for recipe in recipes %}
+    <section>
+
+        {% for recipe in recipes %}
         
             <div class="row">
                 <div class="col s12 m6">
-                    <h3 class="center-align">{{ recipe.recipe_name }} </h3>
+                    <h3 class="recipe-name center-align">{{ recipe.recipe_name }} </h3>
                 </div>
                 <div class="col s12 m6">
                     <a href="">
                         <img class="recipe-image" src="{{ recipe.recipe_image }}" alt="Recipe Image">
                     </a>
                 </div>
-                <div class="col s12 m6">
-                    <p>
-                        {{ recipe.recipe_serves }}
-                    </p>
-                    <p>
-                        {{ recipe.recipe_time }}
-                    </p>
-                    <p>
-                        {{ recipe.recipe_calories }}
-                    </p>
-                </div>
             </div>
-        
             <div class="row">
-                <div class="col s12 m6">
-                    <div class="card-panel teal">
-                        <p class="white-text">
-                            {{ recipe.recipe_ingredients }}
-                        </p>
+                <div class="col s12 m6 recipe-time center-align">
+                    <div class="chip">
+                        Serves: {{ recipe.recipe_serves }}
                     </div>
-                </div>
-
-                <div class="col s12 m6">
-                    <div class="card-panel teal">
-                        <p class="white-text">
-                            {{ recipe.recipe_instructions }}
-                        </p>
+                    <div class="chip">
+                        Time: {{ recipe.recipe_time }} mins
                     </div>
                 </div>
             </div>
-            {% if session.user|lower ==  task.created_by|lower %}
+            {% if session.user or is_admin %}
                 <div class="row">
                     <div class="col s12 m6 center-align">
-                        <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}" class="btn-small">Delete Recipe</a>
                         <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="btn-small">Edit Recipe</a>
                     </div>
                 </div>
             {% endif %}
+            
+            <div class="row">
+                <div class="col s12 m6">
+                    <div class="card-panel teal">
+                    {% for content in recipe.recipe_ingredients.splitlines() %}
+                        <p class="white-text">
+                            {{ content }}
+                        </p>
+                    {% endfor %}
+                    </div>
+                </div>
 
+                <div class="col s12 m6">
+                    <div class="card-panel teal">
+                    {% for content in recipe.recipe_instructions.splitlines() %}
+                        <p class="white-text">
+                            {{ content }}
+                        </p>
+                    {% endfor %}
+                    </div>
+                </div>
+            </div>
         {% endfor %}
 
-</section>
+    </section>
 
 {% endblock %}
