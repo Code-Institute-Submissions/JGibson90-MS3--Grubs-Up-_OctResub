@@ -7,7 +7,7 @@
         
             <div class="row">
                 <div class="col s12 m6">
-                    <h3 class="recipe-name center-align">{{ recipe.recipe_name }} </h3>
+                    <h3 class="center-align">{{ recipe.recipe_name }} </h3>
                 </div>
                 <div class="col s12 m6">
                     <a href="">
@@ -16,26 +16,19 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col s12 m6 recipe-time center-align">
-                    <div class="chip">
+                <div class="col s12 m6 center-align">
+                    <p>
                         Serves: {{ recipe.recipe_serves }}
-                    </div>
-                    <div class="chip">
+                    </p>
+                    <p>
                         Time: {{ recipe.recipe_time }} mins
-                    </div>
+                    </p>
                 </div>
             </div>
-            {% if session.user or is_admin %}
-                <div class="row">
-                    <div class="col s12 m6 center-align">
-                        <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="btn-small">Edit Recipe</a>
-                    </div>
-                </div>
-            {% endif %}
             
             <div class="row">
                 <div class="col s12 m6">
-                    <div class="card-panel teal">
+                    <div class="card-panel blue lighten-1">
                     {% for content in recipe.recipe_ingredients.splitlines() %}
                         <p class="white-text">
                             {{ content }}
@@ -45,7 +38,7 @@
                 </div>
 
                 <div class="col s12 m6">
-                    <div class="card-panel teal">
+                    <div class="card-panel blue lighten-1">
                     {% for content in recipe.recipe_instructions.splitlines() %}
                         <p class="white-text">
                             {{ content }}
@@ -54,6 +47,13 @@
                     </div>
                 </div>
             </div>
+           {% if session.user or is_admin %}
+                <div class="row">
+                    <div class="col s12 m6 center-align">
+                        <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="btn-small pink accent-3">Edit Recipe</a>
+                    </div>
+                </div>
+            {% endif %}
         {% endfor %}
 
     </section>

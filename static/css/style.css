@@ -13,11 +13,14 @@ body {
 .page-header {
     font-family: "Catamaran", sans-serif;
     font-weight: 600;
+    color: #40c4ff;
 }
 
 .flashed-message {
     font-family: "Hepta Slab", sans-serif;
     font-weight: 600;
+    color: #fafafa;
+    background-color: #ff4081;
 }
 
 
@@ -35,10 +38,19 @@ body {
 
 /* ----------------- Home Page -----------------*/
 
+.hero-image {
+    background: url(static/images/hero-image.jpeg);
+    height: 100vh;
+    width: 100%;
+    z-index: 1;
+    background-repeat: no-repeat;
+}
+
 .hero-header {
     font-family: "Hepta Slab", sans-serif;
     font-weight: 600;
     margin-top: 100px;
+    z-index: 0;
 }
 
 /* ----------------- Recipe Details -----------------*/
@@ -46,10 +58,35 @@ body {
 .recipe-name {
     font-weight: 600;
     font-family: "Catamaran", sans-serif;
+    color: #40c4ff;
+}
+
+/* ----------------- Register/Login -----------------*/
+
+.btn-large:hover {
+    color: #b3e5fc;
+    transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
 }
 
 /* ----------------- Footer -----------------*/
 
 .social-links {
-    display: block;
+    display: inline-block;
+    font-size: 200%;
+}
+
+.social-links a {
+    text-decoration: none;
+    color: white;
+}
+
+.social-links a i:hover {
+    color: #b3e5fc;
+    transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
 }

@@ -1,10 +1,26 @@
 {% extends "base.html" %}
 {% block content%}
 
-<div class="row">
-    <div class="col s12 center-align">
-        <h1 class="hero-header">Grub's Up!</h1>
+<main>
+    <div class="hero-image">
+        <div class="center-align">
+            <h1 class="hero-header">Grub's Up!</h1>
+        </div>
     </div>
-</div>
+</main>
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col s12 center-align">
+                Share and view recipes with other users! Not signed up yet? Click here to register
+                <a href="{{ url_for('register') }}" class="btn pink accent-3">Sign Up</a>
+            </div>
+            <div class="col s12 center-align">
+                Already registered? Click here to log in! 
+                <a href="{{ url_for('login') }}"class="btn pink accent-3">Log In</a>
+            </div>
+        </div>
+</section>
 
 {% endblock %}

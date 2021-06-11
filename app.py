@@ -25,8 +25,8 @@ def index():
     return render_template(("index.html"))
 
 
-@app.route("/get_recipes")
-def get_recipes():
+@app.route("/recipes_menu")
+def recipes_menu():
     # check if the user logged in is an admin to edit any recipes
     if "user" in session.keys():
         is_admin = session["user"] == ADMIN
@@ -44,6 +44,12 @@ def get_recipes():
 
     recipes = list(mongo.db.recipes.find())
     return render_template("recipes_menu.html", recipes=recipes)
+
+
+@app.route("/recipe_info/<recipe_id>")
+def recipe_info(recipe_id):
+    recipes = list(mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)}))
+    return render_template("recipe_info.html", recipes=recipes)
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -107,7 +113,6 @@ def profile(username):
     username = mongo.db.users.find_one({"username": session["user"]})["username"]
 
     if session["user"]:
-        recipes = list(mongo.db.recipes.find({"created_by": session["user"]}))
         return render_template("profile.html", username=username)
 
     return redirect(url_for("login"))
@@ -153,7 +158,7 @@ def edit_recipe(recipe_id):
         }
         mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, submit)
         flash("Recipe Edited Successfully")
-        return redirect(url_for("get_recipes"))
+        return redirect(url_for("recipes_menu"))
 
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
 
@@ -164,7 +169,7 @@ def edit_recipe(recipe_id):
 def delete_recipe(recipe_id):
     mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
     flash("Recipe Deleted Successfully")
-    return redirect(url_for("get_recipes"))
+    return redirect(url_for("recipes_menu"))
 
 
 if __name__ == "__main__":
