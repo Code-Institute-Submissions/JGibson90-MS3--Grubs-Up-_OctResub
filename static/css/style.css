@@ -8,6 +8,9 @@ h1 h2 h3 h4 h5 h6 {
 
 body {
     font-family: "Roboto", sans-serif;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
 }
 
 .page-header {
@@ -23,9 +26,6 @@ body {
     background-color: #ff4081;
 }
 
-
-/* ----------------- Navbar -----------------*/
-
 .text-shadow {
     text-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);
 }
@@ -36,29 +36,45 @@ body {
     margin-left: 10px;
 }
 
-/* ----------------- Home Page -----------------*/
+  main {
+    flex: 1 0 auto;
+  }
 
-.hero-image {
-    background: url(static/images/hero-image.jpeg);
-    height: 100vh;
-    width: 100%;
-    z-index: 1;
-    background-repeat: no-repeat;
-}
+/* ----------------- Home Page -----------------*/
 
 .hero-header {
     font-family: "Hepta Slab", sans-serif;
     font-weight: 600;
-    margin-top: 100px;
-    z-index: 0;
+    z-index: 1;
+}
+/* ----------------- Recipes Page -----------------*/
+
+.recipe-image {
+    margin-top: 20px;
 }
 
 /* ----------------- Recipe Details -----------------*/
+
+.recipe-page-header {
+    margin-top: 80px;
+    font-weight: 600;
+    font-family: "Catamaran", sans-serif;
+    color: #40c4ff;
+}
 
 .recipe-name {
     font-weight: 600;
     font-family: "Catamaran", sans-serif;
     color: #40c4ff;
+}
+
+.recipe-info-image {
+    padding-top: 20px;
+}
+/* ----------------- Edit Recipes -----------------*/
+
+.edit-buttons {
+    margin: 40px;
 }
 
 /* ----------------- Register/Login -----------------*/
@@ -71,19 +87,29 @@ body {
     -o-transition: all 0.2s ease-in-out;
 }
 
+#password, #username {
+    margin-top: 5px;
+}
+
 /* ----------------- Footer -----------------*/
 
-.social-links {
-    display: inline-block;
-    font-size: 200%;
+.footer {
+    display: block;
+    position: relative;
 }
 
-.social-links a {
+.footer .row {
+    margin: 0;
+}
+
+.footer a {
     text-decoration: none;
     color: white;
+    font-size: 200%;
+    margin: 10px;
 }
 
-.social-links a i:hover {
+.footer a i:hover {
     color: #b3e5fc;
     transition: all 0.2s ease-in-out;
     -moz-transition: all 0.2s ease-in-out;
