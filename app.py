@@ -48,8 +48,8 @@ def recipes_menu():
 
 @app.route("/recipe_info/<recipe_id>")
 def recipe_info(recipe_id):
-    recipes = list(mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)}))
-    return render_template("recipe_info.html", recipes=recipes)
+    recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    return render_template("recipe_info.html", recipe=recipe)
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -92,7 +92,7 @@ def login():
             ):
                 session["user"] = request.form.get("username").lower()
                 flash("Welcome, {}".format(request.form.get("username")))
-                return redirect(url_for("profile", username=session["user"]))
+                return redirect(url_for("recipes_menu"))
 
             else:
                 # invalid password match
@@ -140,7 +140,7 @@ def add_recipe():
         }
         mongo.db.recipes.insert_one(recipe)
         flash("Recipe added successfully")
-        return redirect(url_for("get_recipes"))
+        return redirect(url_for("recipes_menu"))
     return render_template("add_recipe.html")
 
 
