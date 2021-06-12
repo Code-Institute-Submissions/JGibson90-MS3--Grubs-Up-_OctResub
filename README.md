@@ -92,66 +92,50 @@ Due to time constraints I was unable to implement these features but will includ
     - Balsamiq was used to create the wireframes for the project.
 
 # Testing
-I used the [CSS Validator](https://jigsaw.w3.org/css-validator/) which brought up two errors which can be seen [here](assets/images/CSSTest.PNG). I also 
-used the [HTML Validator](https://validator.w3.org/) which brought up these three warnings which can be seen [here.](assets/images/HTMLTest.PNG)
-### Fixes
-- I simply removed the comma in the middle of the two `margin:0, auto` declarations in the `.btn` and `#form-button` sections of my style.css.
-- Given that the Map is a section in it's own right I don't feel the need to add a heading as I think it will detract from the flow of the page.
-- With regards to the two warnings about the type attribute being unnecessary for JavaScript resources, I removed the `type` attribute and it caused the code to fail so I have left them in place.
-
-## JSHint Testing
-I ran my JavaScript through [JSHint](https://jshint.com/) and it displayed these warnings for my [maps.js file.](assets/images/JSHint1.PNG)
-    - After reviewing these I added the missing semicolons in the maps.js file.
-
-I also ran my sendEmail.js file through JSHint and it returned no warnings or errors which can be seen [here.](assets/images/JSHint2.PNG)
+I used the [CSS Validator](https://jigsaw.w3.org/css-validator/) which brought up these errors which can be seen 
+[here](static/images/CSS-errors.PNG). I also used the [HTML Validator](https://validator.w3.org/) 
+which brought up no warnings or errors other than the parse errors for using Flask and Jinjas templates.
 
 ## Testing User Stories from UX 
 1. As a user, I want to immediately understand what is offered by the website
 
-    1. Upon entering the website, the user is greeted with a navbar with three dropdown options to go to anywhere on the page 
-    2. The user has two options, to either select a link from the navbar or to scroll down, both of which lead to the same location
+    1. Upon entering the website, the user is greeted with a navbar with 4 options to go to anywhere on the page 
+    2. The user is also presented with a card panel with two call to action buttons, prompting them either to sign up or log in
+    2. The user has two options, to either select a link from the navbar or utilise the call to action buttons, both of which lead to the same location
 
 2. As a user, I want to be able to seamlessly navigate through the site to easily find more information
 
-    1. The site has been designed to be fluid being made up of a single scrolling page. At the top of the page is a fixed navbar so the user can always find their way around the website
+    1. The site has a fixed navbar so the user can always navigate wherever they want to go
 
 3. As a user, I want to be able to easily interact with the site and the applications within
 
-    1. The Google Maps API has 3 seperate dropdown menus to choose from. Each one contains a different set of locations with corresponing markers and info windows which appear on the map with a Drop animation when they are selected
-    2. The sign up form has EmailJS integration and will notify the user if the inputs are not entered correctly. Upon successfully submitting the form, an auto reply is sent to the user confirming that they have signed up to the newsletter successfully.
-
+    1. The user is presented with a simple register and log in template with only two inputs required: username and password
+    2. The add recipe page has a simple layout with the minimum amount of inputs needed
+    3. The edit recipe page has the same layout as the edit recipe page with 3 large buttons clearly labelled and spaced out 
+    to avoid accidentally clicking on an action that the user does't wish to use
 
 ## Further Testing 
 - The project was tested on Google Chrome, Mozilla Firefox, Safari for iOS and Microsoft Edge.
 - The project was viewed on a variety of different devices such as Desktop, Laptop, iPhone 7, iPhone 8, iPhone 11, and iPad.
 - I asked friends and family to view the project and give feedback on any user experience issues and/or bugs. 
 
-## EmailJS Testing
-- Firstly I set up my two templates for my emails, one being the auto reply to the user and the other being the one sent to the London Life email which can be seen [here](assets/images/EmailJSTemplate2.PNG) and [here](assets/images/EmailJSTemplate1.PNG) respectively.
-- Then I filled in the form with my details and checked to see if I recieved both the auto reply and the confirmation that there was a new sign up to the newsletter. Proof of which can be seen [here](assets/images/EmailJSTest-3.PNG), [here](assets/images/EmailJSTest-4.PNG) and [here.](assets/images/EmailJSTest-5.PNG)
-
 # Bugs
 Following on from Testing I also encoutered these bugs.
 ## During development
-- Signup form refused to center despite Bootstrap grid and CSS styling
-    - Shift + f5 to clear the cache 
-- Google Maps markers and info windows not appearing in the map
-    - Tutor Support, my mentor and Stack Overflow helped me decipher where I was going wrong
-- On iPhone the phone input on the form could not be entered correctly due to the pattern I had specified
-    - I removed the hyphens from the pattern to fix the issue
+- Recipe info page wouldn't display the selected recipe after following the link from the previous page
+    - My mentor helped me decipher where my app.route function was not targeting the correct information
+- Default Materialize footer taking up a large portion of the bottom of the site
+    - Removed the `<ul>` from the default footer and replaced with simple `<a>` tags container Font Awesome icons 
 
 
 # Deployment
 
-**London Life** was developed on Gitpod, using GitHub to host the repository.
+**Grubs' Up!** was developed on Gitpod, using GitHub to host the repository, MongoDB to host the database and finally deployed via Heroku.
 These were the steps taken to successfully deploy the website.
-- Open [**GitHub**](https://github.com/) and log in
-- Select the **repository**
-- Click the **Settings** button from the top menu
-- Scroll down to the **GitHub pages** section
-- Click the **Source** dropdown menu and select **Main Branch**
-- After the page has refreshed the link to the website can now be found 
-under the **GitHub pages** section
+- First, open up your IDE of preference, open the terminal window and type: pip3 freeze -- local > requirements.txt.
+- Also in terminal window of your IDE type: python app.py > Procfile
+    - These two files are needed for Heroku to see which files to install (requirements.txt) and which file is used as the entry point (Procfile)
+
 
 ## Cloning the Website
 - Open [**GitHub**](https://github.com/) and log in
