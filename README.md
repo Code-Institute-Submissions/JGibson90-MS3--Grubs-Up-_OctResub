@@ -87,7 +87,8 @@ Due to time constraints I was unable to implement these features but will includ
 - [MongoDB](https://www.mongodb.com/)
     - MongoDB was used to create a database to store a collection of users and recipes
 - [Google Fonts](https://fonts.google.com/)
-    - Google Fonts were used to import the Hepta Slab, Catamaran and Roboto fonts into the style.css file for the main logo, headings and the main body respectively.
+    - Google Fonts were used to import the Hepta Slab, Catamaran and Roboto fonts into the style.css file for the main logo, 
+    headings and the main body respectively.
 - [Balsamiq](https://balsamiq.com/) 
     - Balsamiq was used to create the wireframes for the project.
 
@@ -96,12 +97,16 @@ I used the [CSS Validator](https://jigsaw.w3.org/css-validator/) which brought u
 [here](static/images/CSS-errors.PNG). I also used the [HTML Validator](https://validator.w3.org/) 
 which brought up no warnings or errors other than the parse errors for using Flask and Jinjas templates.
 
+Python code passed the [PEP8](http://pep8online.com/) compliance test
+
 ## Testing User Stories from UX 
 1. As a user, I want to immediately understand what is offered by the website
 
-    1. Upon entering the website, the user is greeted with a navbar with 4 options to go to anywhere on the page 
+    1. Upon entering the website, the user is greeted with an appropriate hero image and a navbar with 4 options 
+    to go to anywhere on the page 
     2. The user is also presented with a card panel with two call to action buttons, prompting them either to sign up or log in
-    2. The user has two options, to either select a link from the navbar or utilise the call to action buttons, both of which lead to the same location
+    2. The user has two options, to either select a link from the navbar or utilise the call to action buttons, both of which 
+    lead to the same location
 
 2. As a user, I want to be able to seamlessly navigate through the site to easily find more information
 
@@ -125,17 +130,28 @@ Following on from Testing I also encoutered these bugs.
 - Recipe info page wouldn't display the selected recipe after following the link from the previous page
     - My mentor helped me decipher where my app.route function was not targeting the correct information
 - Default Materialize footer taking up a large portion of the bottom of the site
-    - Removed the `<ul>` from the default footer and replaced with simple `<a>` tags container Font Awesome icons 
+    - Removed the `<ul>` from the default footer and replaced with simple `<a>` tags containing Font Awesome icons 
 
 
 # Deployment
 
-**Grubs' Up!** was developed on Gitpod, using GitHub to host the repository, MongoDB to host the database and finally deployed via Heroku.
+**Grubs' Up!** was developed on **Gitpod**, using **GitHub** to host the repository, **MongoDB** to host the database 
+and finally deployed via **Heroku**.
 These were the steps taken to successfully deploy the website.
-- First, open up your IDE of preference, open the terminal window and type: pip3 freeze -- local > requirements.txt.
-- Also in terminal window of your IDE type: python app.py > Procfile
-    - These two files are needed for Heroku to see which files to install (requirements.txt) and which file is used as the entry point (Procfile)
-
+- First, open up your **IDE** of preference, open the **terminal** window and type: ``pip3 freeze -- local > requirements.txt.``
+- Also in terminal window of your IDE type: ``python app.py > Procfile``
+    - These two files are needed for Heroku to see which files to install (**requirements.txt**) and which file is used as the 
+    entry point (**Procfile**)
+- You need to set up a Heroku account if you have not done so already and select **create a new app** from the **New** dropdown 
+button, after which you will be prompted to give a name to your app and select your region.
+- Click on the **Deploy** tab and select the **Connect to GitHub** icon
+- Underneath that you will be able to search for your repository and then click the **Connect** button once you have selected it
+- Scroll back up and click on the tab named **Settings** and then the button named **Reveal Config Vars**
+    - You will now need to enter all the variables and their values contained in your `env.py` file i.e.
+    (**IP, PORT, SECRET_KEY, MONGO_URI, MONGO_DBNAME, ADMIN**)
+- Go back to your **IDE** and add, commit and push both the `Procfile` and the `requirements.txt` to your repository
+- Now return to the **Deploy** tab in Heroku and click on **Enable Automatic Deployment**
+- Underneath that under **Manual Deploy** click on **Deploy Branch** button and your app should successfully deploy to Heroku
 
 ## Cloning the Website
 - Open [**GitHub**](https://github.com/) and log in
@@ -146,19 +162,23 @@ These were the steps taken to successfully deploy the website.
 - Specify a new **path directory** where you want to put the clone
 - Type `git clone` and then **paste** the previously copied url from before
 
+- Sign up and Log in to MongoDB
+- Create a new cluster using an appropriate Cloud Provider for yourself
+- Click the **Collections** tab and then the **Create Database** button
+- Choose a name for your database and your first **collection**
+- Populate your collection with key value pairs
+
 # Credits
 
 ## Code
-- I used [Bootstrap 4](https://getbootstrap.com/) to make the site
+- I used [Materialize](https://materializecss.com/) to make the site
 responsive on different devices.
 
-- I used the EmailJS tutorial from Code Institutes course to help write my EmailJS function.
+- I used the Data Centric mini project from Code Institutes' course to base my websites logic on.
 
-- I was provided the fix to add infoWindows to my Markers on Stack Overflow, you can view it [here.](https://stackoverflow.com/questions/66689094/how-can-i-add-info-windows-to-a-marker-event-listener)
- 
 ## Images
 - The hero background image came from
-[Pexels.](https://www.pexels.com/photo/sunset-river-london-thames-34632/)
+[Pexels.](https://www.pexels.com/photo/fruit-salads-in-plate-1640774/)
 
 ## Websites
 
@@ -166,4 +186,5 @@ responsive on different devices.
 to display properly.
 
 # Special Thanks
+
 Special thanks to the Slack community, Stack Overflow, Tutor Support and my Mentor for all their advice and guidance on this project.
