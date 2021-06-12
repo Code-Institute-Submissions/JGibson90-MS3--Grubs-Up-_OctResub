@@ -1,5 +1,6 @@
 import os
-from flask import Flask, flash, render_template, redirect, request, session, url_for
+from flask import (
+    Flask, flash, render_template, redirect, request, session, url_for)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -32,14 +33,16 @@ def recipes_menu():
         is_admin = session["user"] == ADMIN
         if is_admin:
             recipes = list(mongo.db.recipes.find())
-            return render_template("recipes_menu.html", recipes=recipes, is_admin=is_admin)
-    # checks if the user is logged in to edit their recipes
+            return render_template(
+                "recipes_menu.html", recipes=recipes, is_admin=is_admin
+            )
+        # checks if the user is logged in to edit their recipes
         recipes = list(mongo.db.recipes.find({"created_by": session["user"]}))
         return render_template(
             "recipes_menu.html",
             recipes=recipes,
             user=session["user"],
-            is_admin=is_admin
+            is_admin=is_admin,
         )
 
     recipes = list(mongo.db.recipes.find())
@@ -110,7 +113,8 @@ def login():
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
     # grab the session username from the database
-    username = mongo.db.users.find_one({"username": session["user"]})["username"]
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
 
     if session["user"]:
         return render_template("profile.html", username=username)
@@ -173,4 +177,5 @@ def delete_recipe(recipe_id):
 
 
 if __name__ == "__main__":
-    app.run(host=os.environ.get("IP"), port=int(os.environ.get("PORT")), debug=True)
+    app.run(host=os.environ.get("IP"), port=int(
+        os.environ.get("PORT")), debug=True)
