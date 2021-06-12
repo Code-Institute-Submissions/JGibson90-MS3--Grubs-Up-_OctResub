@@ -1,12 +1,12 @@
 # MS3---Grubs' Up!
 Third Milestone Project for Code Institute
 
- ![](assets/images/devices.PNG)
+ ![](static/images/devices.PNG)
 
 I wanted to design a website for users to be able to share their own recipes and view recipes from other users. I used MongoDB 
 for the database and I used Flask to facilitate building the bulk of the website with templates.
 
-[The live project can be viewed here.](https://jgibson90.github.io/MS3/)
+[The live project can be viewed here.](https://ms3-jgibson90.herokuapp.com/)
 
 ---
 # Contents
@@ -31,12 +31,12 @@ for the database and I used Flask to facilitate building the bulk of the website
     - As a user, I want to be able to sign up so that I can upload my own recipes
     - As a user, I want to be able to edit/update/delete my own recipes
 
-    I made the wireframe using Balsamiq which you can view the wireframe [here.](assets/images/Wireframe.png)
+    I made the wireframe using Balsamiq which you can view the wireframe [here.](static/images/wireframe.png)
 
 ## Design Choices
 ---
-When designing this website I looked at existing recipe sites such as [this one for Hello Fresh](https://www.hellofresh.co.uk) 
-for inspiration. I opted for a multi page website with certain pages only being accessible if a registered user is logged in.
+When designing this website, I looked at existing recipe sites such as [this one for Hello Fresh](https://www.hellofresh.co.uk) 
+for inspiration. I opted for a multi-page website with certain pages only being accessible if a registered user is logged in.
 
 ## Fonts
 I chose [Hepta Slab](https://fonts.google.com/specimen/Hepta+Slab) for my logo for something eye catching and unique. 
@@ -49,9 +49,7 @@ for my main font for its' excellent readability and clean look.
 I used [Font Awesome](https://fontawesome.com/) for my form icons as well as my button icons and the social media links in the footer.
 
 ## Colours
-I used the built in CSS colour styling in Materialize to choose my colour scheme and apply it to all necessary HTML element classes. 
-
-![](assets/images/colours.png)
+I used the built in CSS colour styling in Materialize to choose my colour scheme and apply it to all necessary HTML element classes.
 
 # Features
 - Responsive on all device sizes
@@ -63,7 +61,7 @@ I used the built in CSS colour styling in Materialize to choose my colour scheme
 - Social media links
 
 ## Future Features
-Due to time constraints I was unable to implement these features but will include them in the future
+Due to time constraints, I was unable to implement these features but will include them in the future
 - Modal popup to confirm recipe deletion 
 - Ability to see if a recipe is vegetarian or vegan
 
@@ -77,7 +75,7 @@ Due to time constraints I was unable to implement these features but will includ
 - [Git](https://git-scm.com/) 
     - Git was used for version control, using the Terminal to commit and push to GitHub.
 - [Font Awesome](https://fontawesome.com/)
-    - Font Awesome was used to add icons to the footer for better UX amd aesthetics.
+    - Font Awesome was used to add icons to the footer for better UX and aesthetics.
 - [Materialize](https://materializecss.com/)
     - Materialize was used to aid with prebuilt classes and the responsiveness of the website across multiple devices.
 - [JQuery](https://jquery.com/)
@@ -104,8 +102,8 @@ Python code passed the [PEP8](http://pep8online.com/) compliance test
 
     1. Upon entering the website, the user is greeted with an appropriate hero image and a navbar with 4 options 
     to go to anywhere on the page 
-    2. The user is also presented with a card panel with two call to action buttons, prompting them either to sign up or log in
-    2. The user has two options, to either select a link from the navbar or utilise the call to action buttons, both of which 
+    2. The user is also presented with a card panel with two call-to-action buttons, prompting them either to sign up or log in
+    2. The user has two options, to either select a link from the navbar or utilise the call-to-action buttons, both of which 
     lead to the same location
 
 2. As a user, I want to be able to seamlessly navigate through the site to easily find more information
@@ -115,9 +113,9 @@ Python code passed the [PEP8](http://pep8online.com/) compliance test
 3. As a user, I want to be able to easily interact with the site and the applications within
 
     1. The user is presented with a simple register and log in template with only two inputs required: username and password
-    2. The add recipe page has a simple layout with the minimum amount of inputs needed
+    2. The add recipe page has a simple layout with the minimum number of inputs needed
     3. The edit recipe page has the same layout as the edit recipe page with 3 large buttons clearly labelled and spaced out 
-    to avoid accidentally clicking on an action that the user does't wish to use
+    to avoid accidentally clicking on an action that the user doesn't wish to use
 
 ## Further Testing 
 - The project was tested on Google Chrome, Mozilla Firefox, Safari for iOS and Microsoft Edge.
@@ -125,7 +123,7 @@ Python code passed the [PEP8](http://pep8online.com/) compliance test
 - I asked friends and family to view the project and give feedback on any user experience issues and/or bugs. 
 
 # Bugs
-Following on from Testing I also encoutered these bugs.
+Following on from Testing I also encountered these bugs.
 ## During development
 - Recipe info page wouldn't display the selected recipe after following the link from the previous page
     - My mentor helped me decipher where my app.route function was not targeting the correct information
@@ -184,6 +182,10 @@ responsive on different devices.
 
 - I used [ResizeImage](https://resizeimage.net/) to help get the hero image
 to display properly.
+
+## recipes
+
+- Recipes were from [Hello Fresh](https://www.hellofresh.co.uk/)
 
 # Special Thanks
 
